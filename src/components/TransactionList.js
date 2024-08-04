@@ -1,6 +1,5 @@
 import React from "react";
 
-
 function TransactionList({date,description,category,amount}) {
   return (
 

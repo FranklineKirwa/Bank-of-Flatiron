@@ -73,5 +73,4 @@ function AddTransactionForm({ onSubmitData }) {
     </div>
   );
 }
-
 export default AddTransactionForm;
