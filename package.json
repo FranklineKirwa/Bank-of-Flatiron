@@ -33,17 +33,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "description": "Welcome to the Bank of Flatiron, where you can trust us with all your financial data! Use the below gif as an example of how the app should function.",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/FranklineKirwa/Bank-of-Flatiron.git"
-  },
-  "author": "frank <sangkirwa2@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/FranklineKirwa/Bank-of-Flatiron/issues"
-  },
-  "homepage": "https://github.com/FranklineKirwa/Bank-of-Flatiron#readme"
+  }
+
 }

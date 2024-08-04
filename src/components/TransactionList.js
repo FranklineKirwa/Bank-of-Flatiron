@@ -14,4 +14,3 @@ function TransactionList({date,description,category,amount}) {
 }
 
 export default TransactionList;
-
