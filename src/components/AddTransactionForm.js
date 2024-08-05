@@ -24,7 +24,7 @@ function AddTransactionForm({ onSubmitData }) {
       date: "",
       description: "",
       category: "",
-      amount: "0",
+      amount: "",
     });
   };
 
