@@ -6,7 +6,7 @@ function AddTransactionForm({ onSubmitData }) {
     date: "",
     description: "",
     category: "",
-    amount: "0",
+    amount: "",
   });
 
   // Handle changes to form input fields
