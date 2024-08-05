@@ -36,13 +36,13 @@ function App() {
 
     // Send the new transaction to the backend
     fetch("http://localhost:8001/transactions", serverOptions)
-      .then(r => r.json())
+      .then(response => response.json())
       .then(newItem => {
         console.log(newItem);
         setTransaction(transactions => [...transactions, newItem]);
         setFilteredTransactions(transactions => [...transactions, newItem]);
       })
-      .catch(error => console.error("Error adding transaction:", error)); 
+      .catch(error => console.error("Error adding transaction:", error));
   }
 
   function handleSearch(searchTerm) {
