@@ -104,6 +104,27 @@
       "description": "play basketball",
       "category": "EBL",
       "amount": "0730"
+    },
+    {
+      "id": "d53e",
+      "date": "2024-08-05",
+      "description": "Moringa",
+      "category": "school",
+      "amount": "200000"
+    },
+    {
+      "id": "4104",
+      "date": "2024-08-10",
+      "description": "bananas",
+      "category": "fruits",
+      "amount": "90"
+    },
+    {
+      "id": "4db2",
+      "date": "2024-08-31",
+      "description": "Moringa",
+      "category": "SGR-",
+      "amount": "0"
     }
   ]
 }

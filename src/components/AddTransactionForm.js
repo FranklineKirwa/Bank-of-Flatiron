@@ -32,37 +32,33 @@ function AddTransactionForm({ onSubmitData }) {
     <div className="ui segment">
       <form onSubmit={handleSubmit} className="ui form">
         <div className="inline fields">
-          {/* Input for date */}
           <input
             value={data.date}
-            type="date" // Input type for selecting a date
-            name="date" // Name of the input field
-            onChange={handleChange} // Handle input change
+            type="date"
+            name="date"
+            onChange={handleChange}
           />
-          {/* Input for description */}
           <input
             value={data.description}
-            type="text" // Input type for text
-            name="description" // Name of the input field
-            placeholder="Description" // Placeholder text for the input field
-            onChange={handleChange} // Handle input change
+            type="text"
+            name="description"
+            placeholder="Description"
+            onChange={handleChange}
           />
-          {/* Input for category */}
           <input
             value={data.category}
-            type="text" // Input type for text
-            name="category" // Name of the input field
-            placeholder="Category" // Placeholder text for the input field
-            onChange={handleChange} // Handle input change
+            type="text"
+            name="category"
+            placeholder="Category"
+            onChange={handleChange}
           />
-          {/* Input for amount */}
           <input
             value={data.amount}
-            type="number" // Input type for number
-            name="amount" // Name of the input field
-            placeholder="Amount" // Placeholder text for the input field
-            step="0.01" // Step value for the number input to allow decimal amounts
-            onChange={handleChange} // Handle input change
+            type="number"
+            name="amount"
+            placeholder="Amount"
+            step="0.01"
+            onChange={handleChange}
           />
         </div>
 

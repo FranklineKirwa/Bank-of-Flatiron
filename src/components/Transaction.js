@@ -23,7 +23,7 @@ function Transaction({ transaction }) {
           </tr>
         </thead>
         <tbody>
-          
+
           {/* Iterate over the transaction array and render a TransactionList component for each transaction */}
           {transaction.map((transact) => (
             <TransactionList

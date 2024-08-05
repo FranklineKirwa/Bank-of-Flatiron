@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from "react";
-import Search from "./Search"; // Import the Search component
-import Transaction from "./Transaction"; // Import the Transaction component
-import AddTransactionForm from "./AddTransactionForm"; // Import the AddTransactionForm component
+import Search from "./Search";
+import Transaction from "./Transaction";
+import AddTransactionForm from "./AddTransactionForm";
 
 function App() {
-  // State to store the list of transactions
-  const [transaction, setTransaction] = useState([]);
+  const [transactions, setTransaction] = useState([]);
+  const[filteredTransactions, setFilteredTransactions]=useState([]);
 
   // Effect to fetch transactions from the backend when the component mounts
   useEffect(() => {
     fetch("http://localhost:8001/transactions")
-      .then(response => response.json()) // Parse the JSON from the response
-      .then(transactions => setTransaction(transactions)) // Update the state with fetched transactions
-      .catch(error => console.error("Error fetching transactions:", error)); // Handle potential errors
+      .then(response => response.json())
+      .then(transactions =>{
+        setTransaction(transactions);// Update the state with fetched transactions
+        setFilteredTransactions(transactions);
+      })
+      .catch(error => console.error("Error fetching transactions:", error));
   }, []);
 
   // Function to handle adding a new transaction
@@ -33,19 +36,25 @@ function App() {
 
     // Send the new transaction to the backend
     fetch("http://localhost:8001/transactions", serverOptions)
-      .then(r => r.json()) // Parse the JSON response
-      .then(newItem => console.log(newItem)) // Log the newly added item from the server
-      .catch(error => console.error("Error adding transaction:", error)); // Handle potential errors
+      .then(r => r.json())
+      .then(newItem => {
+        console.log(newItem);
+        setTransaction(transactions => [...transactions, newItem]);
+        setFilteredTransactions(transactions => [...transactions, newItem]);
+      })
+      .catch(error => console.error("Error adding transaction:", error)); 
   }
 
-  // Function to handle search and filter transactions based on search term
   function handleSearch(searchTerm) {
-    // Filter transactions based on the search term
-    setTransaction(transactions =>
-      transactions.filter(transact =>
-        transact.description.toLowerCase().includes(searchTerm.toLowerCase())
-      )
-    );
+    if (searchTerm.trim() === "") {
+      setFilteredTransactions(transactions);
+    } else {
+      setFilteredTransactions(
+        transactions.filter(transact =>
+          transact.description.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      );
+    }
   }
 
   return (
@@ -53,10 +62,11 @@ function App() {
       <div className="ui segment violet inverted">
         <h2>The Royal Bank of Flatiron</h2>
       </div>
-      <Search handleSearch={handleSearch} /> {/* Render Search component and pass handleSearch function */}
-      <AddTransactionForm onSubmitData={handleSubmitData} /> {/* Render AddTransactionForm component and pass handleSubmitData function */}
-      <Transaction transaction={transaction} /> {/* Render Transaction component and pass the list of transactions */}
+      <Search handleSearch={handleSearch} />
+      <AddTransactionForm onSubmitData={handleSubmitData} />
+      <Transaction transaction={filteredTransactions} />
     </div>
   );
 }
 export default App;
+
