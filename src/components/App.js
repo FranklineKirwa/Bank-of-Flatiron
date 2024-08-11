@@ -9,7 +9,7 @@ function App() {
 
   // Effect to fetch transactions from the backend when the component mounts
   useEffect(() => {
-    fetch("https://bank-of-flatiron-wine.vercel.app")
+    fetch("http://localhost:8002/transactions")
       .then(response => response.json())
       .then(transactions =>{
         setTransaction(transactions);// Update the state with fetched transactions
@@ -35,7 +35,7 @@ function App() {
     };
 
     // Send the new transaction to the backend
-    fetch("https://bank-of-flatiron-wine.vercel.app", serverOptions)
+    fetch("http://localhost:8002/transactions", serverOptions)
       .then(response => response.json())
       .then(newItem => {
         console.log(newItem);
