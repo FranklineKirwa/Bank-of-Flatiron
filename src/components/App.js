@@ -9,7 +9,7 @@ function App() {
 
   // Effect to fetch transactions from the backend when the component mounts
   useEffect(() => {
-    fetch("http://localhost:8002/transactions")
+    fetch("https://json-beige.vercel.app/transactions")
       .then(response => response.json())
       .then(transactions =>{
         setTransaction(transactions);// Update the state with fetched transactions
@@ -35,7 +35,7 @@ function App() {
     };
 
     // Send the new transaction to the backend
-    fetch("http://localhost:8002/transactions", serverOptions)
+    fetch("https://json-beige.vercel.app/transactions", serverOptions)
       .then(response => response.json())
       .then(newItem => {
         console.log(newItem);
